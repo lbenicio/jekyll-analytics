@@ -21,10 +21,6 @@ class GoogleAnalytics
 
 
    def initialize(config)
-        if !(ID_RE.match(config["id"]))
-            raise ArgumentError, 'Invalid Google analytics key. Id must look like UA-XXXXXX-Y'
-        end
-
         @commands = []
         @commands.push(INITIALIZE_CODE % config["id"])
         @commands.push(PAGEVIEW_CODE)
